@@ -45,6 +45,9 @@ class MovieViewController: UIViewController {
         super.viewWillAppear(animated)
         //ivPoster.image = UIImage(named: movie.imageWide)
         lbTitle.text = movie.title
+        if let categories = movie.categories {
+            lbGenre.text = categories.map({($0 as! Category).name!}).joined(separator:" | ")
+        }
         //        lbGenre.text = movie.categoriesDescription
         lbDuration.text = movie.duration
         lbScore.text = "⭐️ \(movie.rating)/10"
