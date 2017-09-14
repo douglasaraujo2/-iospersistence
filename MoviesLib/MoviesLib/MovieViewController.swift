@@ -26,28 +26,31 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Alimentando as IBOutlets com as informações dos filmes
-        /*
-        ivPoster.image = UIImage(named: movie.imageWide)
+        /*Alimentando as IBOutlets com as informações dos filmes
+        
+        //ivPoster.image = UIImage(named: movie.imageWide)
         lbTitle.text = movie.title
-        lbGenre.text = movie.categoriesDescription
+//        lbGenre.text = movie.categoriesDescription
         lbDuration.text = movie.duration
         lbScore.text = "⭐️ \(movie.rating)/10"
-        tvSinopsis.text = movie.summary
-        */
+        tvSinopsis.text = movie.summary*/
+        
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        lbTitle.text = movie.title
-        lbDuration.text = movie.duration
-        lbScore.text = "⭐️\(movie.rating)/10"
-        tvSinopsis.text = movie.summary
-    }
+    
     //Dessa forma, podemos voltar à tela anterior
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         dismiss(animated: true, completion: nil)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //ivPoster.image = UIImage(named: movie.imageWide)
+        lbTitle.text = movie.title
+        //        lbGenre.text = movie.categoriesDescription
+        lbDuration.text = movie.duration
+        lbScore.text = "⭐️ \(movie.rating)/10"
+        tvSinopsis.text = movie.summary
+
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? MoviewRegisterViewController{
             vc.movie = movie
